@@ -1,27 +1,32 @@
-import {  useState } from 'react'
+import {  FormEvent, useState } from 'react'
 import './App.css'
 import styles from './index.module.css'
 
 const App=()=> {
   const [toDoList,setToDoList] = useState<string[]>([])
-
-  let toDoThing :string;
+  const [toDoThing,setToDoThing] = useState("")
   
   const getValue = async(value:string)=>{
-    toDoThing = value;
+    
+    setToDoThing(value);
   }
-  const addList = ()=>{
-    setToDoList([...toDoList,toDoThing])
+  const addList = async(event:FormEvent)=>{
+    event.preventDefault()
+    setToDoList((prev)=>[...prev,toDoThing])
+    console.log(toDoList)
   }
   return (
     <>
       <div>toDo list</div>
-      <div className={styles.form} onSubmit={addList}>
-        <form>
-        <input type = "text" onChange={(e)=>getValue(e.target.value)}/>
-        <input className = {styles.add} type='submit' value = '追加' />
-        </form>
-      </div>
+      {toDoList.map((list,index)=>(
+        <div key={index}>{list}</div>
+      )
+
+      )}
+      <form className={styles.form} onSubmit={addList}>
+       <input type = "text" onChange={(e)=>getValue(e.target.value)}/>
+       <input className = {styles.add} type='submit' value = '追加' />
+      </form>
     </>
   )
 }
