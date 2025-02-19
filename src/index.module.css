@@ -5,7 +5,10 @@
     flex-direction: column;
     width:100vw;
     height:100vh;
-
+}
+.content{
+    width:60vw;
+    height:100vh;
 }
 .title{
     top:10%;
@@ -13,11 +16,20 @@
 .toDoThing {
     display:flex;
 }
+.toDoTitle{
+    font-weight: bold;
+    font-size:20px;
+}
 
+.border{
+    width:100%;
+    border-bottom:1px solid #E6E6E6
+}
 
 
 .form{
-    width: 30%;
+    margin-top:15px;
+    width: 80%;
     height:20%;
     border-radius:8px;
     border:2px solid #E6E6E6;
@@ -64,7 +76,11 @@
     border-top:2px solid #E6E6E6;
 }
 .add {
-    
+    background-color: #DC4c3E;
+    color:white;
+    border:none;
+    border-radius: 3px;
     margin-left:80%;
-    height:80%
+    height:80%;
+    width:10%;
 }

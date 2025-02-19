@@ -32,26 +32,34 @@ const App=()=> {
 
   return (
     <div className={styles.main}>
+      <div className={styles.content}>
       <h1 className={styles.title}>今日のやること</h1>
       {toDoList.map((list,index)=>(
-        <div className={styles.toDoThing}>
-          <div className={styles.checkbox}><input type="checkbox" /></div>
+        <div>
+          <div className={styles.toDoThing}>
+            <div className={styles.checkbox}><input type="checkbox" /></div>
           
-          <div key={index} >
-            <div>{list.title}</div>
-            <div>{list.detail}</div>
+            <div key={index} >
+              <div className={styles.toDoTitle}>{list.title}</div>
+              <div className={styles.toDoDetail}>{list.detail}</div>
+            </div>
           </div>
+          <div className={styles.border}></div>
         </div>
+        
       ))}
-      <form className={`${styles.form} ${focusForm ? styles.focused:''} `} onSubmit={addList} >
-       <div className = {styles.textbox}  onFocus={focusText} onBlur={blurText}>
-        <input type = "text" className={styles.titleText} onChange={(e)=>getTitleText(e.target.value)} />
-        <input type= "text" className={styles.detailText} onChange={(e)=>getDetailText(e.target.value)} />
-       </div> 
-       <div className = {styles.submit} >
-        <input className = {styles.add} type='submit' value = '追加' />
-       </div>
-      </form>
+
+        <form className={`${styles.form} ${focusForm ? styles.focused:''} `} onSubmit={addList} >
+          <div className = {styles.textbox}  onFocus={focusText} onBlur={blurText}>
+            <input type = "text" className={styles.titleText} onChange={(e)=>getTitleText(e.target.value)} placeholder='タイトル'/>
+            <input type= "text" className={styles.detailText} onChange={(e)=>getDetailText(e.target.value)} placeholder='説明'/>
+          </div> 
+          <div className = {styles.submit} >
+            <input className = {styles.add} type='submit' value = '追加' />
+          </div>
+        </form>
+      </div>
+     
     </div>
   )
 }
