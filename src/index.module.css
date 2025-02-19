@@ -1,25 +1,35 @@
 .main{
     display: flex;
-    justify-content: center;
+
     align-items: center;
     flex-direction: column;
     width:100vw;
     height:100vh;
 
 }
+.title{
+    top:10%;
+}
+.toDoThing {
+    display:flex;
+}
+
+
 
 .form{
     width: 30%;
     height:20%;
     border-radius:8px;
-    border:1px solid ;
+    border:2px solid #E6E6E6;
 }
-
+.form.focused{
+    border:2px solid #999999
+}
 
 .textbox{
     margin:auto;
     width: 90%;
-    height:80%;
+    height:70%;
     
 }
 
@@ -46,4 +56,15 @@
 .detailText:focus{
     border:none;
 }
-
+.submit{
+    display:flex;
+    height:30%;
+    justify-content: center;
+    align-items: center;
+    border-top:2px solid #E6E6E6;
+}
+.add {
+    
+    margin-left:80%;
+    height:80%
+}
