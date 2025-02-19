@@ -1,0 +1,49 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100vw;
+    height:100vh;
+
+}
+
+.form{
+    width: 30%;
+    height:20%;
+    border-radius:8px;
+    border:1px solid ;
+}
+
+
+.textbox{
+    margin:auto;
+    width: 90%;
+    height:80%;
+    
+}
+
+.titleText{
+    width: 100%;
+    height:30%;
+    font-size:100%;
+    font-weight: bold;
+    box-sizing: border-box;
+    outline:none;
+    border:none;
+}
+
+.titleText:focus{
+    border:none;
+}
+.detailText{
+    width: 100%;
+    height:20%;
+    border:none;
+    box-sizing: border-box;
+    outline:none;
+}
+.detailText:focus{
+    border:none;
+}
+
