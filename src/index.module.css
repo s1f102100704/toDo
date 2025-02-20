@@ -21,11 +21,33 @@
     font-size:20px;
 }
 
+.checkbox {
+    width: 20px;
+    height: 20px;
+    appearance: none;  /* デフォルトのチェックボックスを非表示 */
+    border: 2px solid #4caf50;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none; /* フォーカス枠を消す */
+}
+.checkbox:hover {
+    
+    background-color: #4caf50;
+}
+.checkbox:hover::after{
+    content: "✔";
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    left: 3px;
+    top: -2px;
+}
+
 .border{
     width:100%;
     border-bottom:1px solid #E6E6E6
 }
-
 
 .form{
     margin-top:15px;

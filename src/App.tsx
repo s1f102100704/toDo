@@ -7,10 +7,10 @@ type doList = {
 }
 const App=()=> {
   const [focusForm,setFocusForm] =useState(false) 
-
   const [toDoList,setToDoList] = useState<doList[]>([])
   const [toDoTitle,setToDoTitle] = useState("")
   const [toDoDetail,setToDoDetail] = useState("") 
+  // const [checked,setChecked] = useState(false)
 
   const getTitleText = async(value:string)=>{
     setToDoTitle(value);
@@ -30,6 +30,12 @@ const App=()=> {
     setFocusForm(false)
   } 
 
+  const handleCheck =(event: React.ChangeEvent<HTMLInputElement>,list:doList,index:number)=>{
+    console.log(index)
+    setToDoList((prev) => prev.filter((_, i) => i !== index))
+    console.log(toDoList)
+  }
+
   return (
     <div className={styles.main}>
       <div className={styles.content}>
@@ -37,8 +43,7 @@ const App=()=> {
       {toDoList.map((list,index)=>(
         <div>
           <div className={styles.toDoThing}>
-            <div className={styles.checkbox}><input type="checkbox" /></div>
-          
+            <div ><input type="checkbox" onChange={(event) => handleCheck(event,list, index)} className={styles.checkbox}/></div>
             <div key={index} >
               <div className={styles.toDoTitle}>{list.title}</div>
               <div className={styles.toDoDetail}>{list.detail}</div>
@@ -46,7 +51,6 @@ const App=()=> {
           </div>
           <div className={styles.border}></div>
         </div>
-        
       ))}
 
         <form className={`${styles.form} ${focusForm ? styles.focused:''} `} onSubmit={addList} >
